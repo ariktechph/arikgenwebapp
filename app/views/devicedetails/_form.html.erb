@@ -1,0 +1,90 @@
+<%= form_with(model: devicedetail) do |form| %>
+  <% if devicedetail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(devicedetail.errors.count, "error") %> prohibited this devicedetail from being saved:</h2>
+
+      <ul>
+        <% devicedetail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :imei %>
+    <%= form.text_field :imei %>
+  </div>
+
+  <div class="field">
+    <%= form.label :brand %>
+    <%= form.text_field :brand %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :device_type %>
+    <%= form.text_field :device_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ram %>
+    <%= form.text_field :ram %>
+  </div>
+
+  <div class="field">
+    <%= form.label :built_in_mem %>
+    <%= form.text_field :built_in_mem %>
+  </div>
+
+  <div class="field">
+    <%= form.label :battery %>
+    <%= form.text_field :battery %>
+  </div>
+
+  <div class="field">
+    <%= form.label :op_sys %>
+    <%= form.text_field :op_sys %>
+  </div>
+
+  <div class="field">
+    <%= form.label :chipset %>
+    <%= form.text_field :chipset %>
+  </div>
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>IMEI</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Device type</th>
+        <th>RAM</th>
+        <th>Built in memory</th>
+        <th>Battery</th>
+        <th>Operating system</th>
+        <th>Chipset</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr imei="tr_<%= @devicedetail.imei%>">
+        <%= form_for devicedetail, remote: true do |f|%>
+          <td contenteditable="true"><%=devicedetail.imei %></td>
+          <td><%= link_to "Destroy", devicedetail, method: :delete, remote:true %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+
+<% end %>
