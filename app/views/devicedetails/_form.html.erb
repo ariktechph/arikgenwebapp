@@ -11,51 +11,6 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :imei %>
-    <%= form.text_field :imei %>
-  </div>
-
-  <div class="field">
-    <%= form.label :brand %>
-    <%= form.text_field :brand %>
-  </div>
-
-  <div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model %>
-  </div>
-
-  <div class="field">
-    <%= form.label :device_type %>
-    <%= form.text_field :device_type %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ram %>
-    <%= form.text_field :ram %>
-  </div>
-
-  <div class="field">
-    <%= form.label :built_in_mem %>
-    <%= form.text_field :built_in_mem %>
-  </div>
-
-  <div class="field">
-    <%= form.label :battery %>
-    <%= form.text_field :battery %>
-  </div>
-
-  <div class="field">
-    <%= form.label :op_sys %>
-    <%= form.text_field :op_sys %>
-  </div>
-
-  <div class="field">
-    <%= form.label :chipset %>
-    <%= form.text_field :chipset %>
-  </div>
-
   <table class="table table-striped table-bordered table-hover">
     <thead class="thead-dark">
       <tr>
@@ -75,16 +30,62 @@
 
       <tr imei="tr_<%= @devicedetail.imei%>">
         <%= form_for devicedetail, remote: true do |f|%>
-          <td contenteditable="true"><%=devicedetail.imei %></td>
-          <td><%= link_to "Destroy", devicedetail, method: :delete, remote:true %></td>
+          <td><%= form.text_field :imei %></td>
+          <td><%= form.text_field :brand %></td>
+          <td><%= form.text_field :model %></td>
+          <td><%= form.text_field :device_type %></td>
+          <td><%= form.text_field :ram %></td>
+          <td><%= form.text_field :built_in_mem %></td>
+          <td><%= form.text_field :battery %></td>
+          <td><%= form.text_field :op_sys %></td>
+          <td><%= form.text_field :chipset %></td>
+          <td><%= form.submit 'Save', class:'btn btn-dark' %></td>
         <% end %>
       </tr>
     </tbody>
   </table>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<h4>All devices</h4>
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>IMEI</th>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Device type</th>
+      <th>RAM</th>
+      <th>Built in memory</th>
+      <th>Battery</th>
+      <th>Operating system</th>
+      <th>Chipset</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @devicedetails.each do |devicedetail| %>
+      <tr>
+        <td contenteditable="true"><%= devicedetail.imei %></td>
+        <td><%= devicedetail.brand %></td>
+        <td><%= devicedetail.model %></td>
+        <td><%= devicedetail.device_type %></td>
+        <td><%= devicedetail.ram %></td>
+        <td><%= devicedetail.built_in_mem %></td>
+        <td><%= devicedetail.battery %></td>
+        <td><%= devicedetail.op_sys %></td>
+        <td><%= devicedetail.chipset %></td>
+        <td><%= link_to 'Show', devicedetail %></td>
+        <td><%= link_to 'Edit', edit_devicedetail_path(devicedetail) %></td>
+        <td><%= link_to 'Delete', devicedetail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<!--  <div class="actions">
+    <%= form.submit 'Save device details', class:'btn btn-dark' %>
+  </div>-->
 
 
 <% end %>

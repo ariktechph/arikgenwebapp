@@ -8,15 +8,18 @@ class DevicedetailsController < ApplicationController
 
   # GET /devicedetails/1 or /devicedetails/1.json
   def show
+    @devicedetails = Devicedetail.all
   end
 
   # GET /devicedetails/new
   def new
     @devicedetail = Devicedetail.new
+    @devicedetails = Devicedetail.all
   end
 
   # GET /devicedetails/1/edit
   def edit
+    @devicedetails = Devicedetail.all
   end
 
   # POST /devicedetails or /devicedetails.json
@@ -25,10 +28,10 @@ class DevicedetailsController < ApplicationController
 
     respond_to do |format|
       if @devicedetail.save
-        format.html { redirect_to @devicedetail, notice: "Devicedetail was successfully created." }
-        format.json { render :show, status: :created, location: @devicedetail }
+        format.html { redirect_to new_devicedetail_path, notice: "Device was successfully created." }
+        format.json { render :new, status: :created, location: @devicedetail }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :show, status: :unprocessable_entity }
         format.json { render json: @devicedetail.errors, status: :unprocessable_entity }
       end
     end
@@ -38,10 +41,10 @@ class DevicedetailsController < ApplicationController
   def update
     respond_to do |format|
       if @devicedetail.update(devicedetail_params)
-        format.html { redirect_to @devicedetail, notice: "Devicedetail was successfully updated." }
-        format.json { render :show, status: :ok, location: @devicedetail }
+        format.html { redirect_to new_devicedetail_path, notice: "Device was successfully updated." }
+        format.json { render :edit, status: :ok, location: @devicedetail }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :show, status: :unprocessable_entity }
         format.json { render json: @devicedetail.errors, status: :unprocessable_entity }
       end
     end
@@ -51,7 +54,7 @@ class DevicedetailsController < ApplicationController
   def destroy
     @devicedetail.destroy
     respond_to do |format|
-      format.html { redirect_to devicedetails_url, notice: "Devicedetail was successfully destroyed." }
+      format.html { redirect_to devicedetails_url, notice: "Device was successfully deleted." }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,8 @@
-<h1>Editing Devicedetail</h1>
+<p id="notice"><%= notice %></p>
+
+<h4>Editing Device Details</h4>
 
 <%= render 'form', devicedetail: @devicedetail %>
-
-<%= link_to 'Show', @devicedetail %> |
-<%= link_to 'Back', devicedetails_path %>
+<br/>
+<!--<%= link_to 'Show', @devicedetail, class:"btn btn-dark" %>-->
+<%= link_to 'Back', new_devicedetail_path, class:"btn btn-dark" %>
