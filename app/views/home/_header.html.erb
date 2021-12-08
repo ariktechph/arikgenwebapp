@@ -31,11 +31,11 @@
     <form class="form-inline my-2 my-lg-0">
       <% if user_signed_in? %>
       
-      <%= link_to 'Edit user', edit_user_registration_path, class:'btn btn-dark me-auto mr-3' %>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:'btn btn-dark me-auto' %>
+      <%= link_to 'Edit user', edit_user_registration_path, class:'btn btn-info me-auto mr-3' %>
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:'btn btn-info me-auto' %>
       <% else %>
-      <%= link_to 'Create new user', new_user_registration_path, class:'btn btn-dark me-auto mr-3' %>
-      <%= link_to 'Sign In', new_user_session_path, class:'btn btn-dark me-auto mr-3' %>
+      <%= link_to 'Create new user', new_user_registration_path, class:'btn btn-info me-auto mr-3' %>
+      <%= link_to 'Sign In', new_user_session_path, class:'btn btn-info me-auto mr-3' %>
       <% end %>
     </form>
 </nav>

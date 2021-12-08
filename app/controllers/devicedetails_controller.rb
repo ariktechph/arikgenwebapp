@@ -54,7 +54,7 @@ class DevicedetailsController < ApplicationController
   def destroy
     @devicedetail.destroy
     respond_to do |format|
-      format.html { redirect_to devicedetails_url, notice: "Device was successfully deleted." }
+      format.html { redirect_to new_devicedetail_path, notice: "Device was successfully deleted." }
       format.json { head :no_content }
     end
   end

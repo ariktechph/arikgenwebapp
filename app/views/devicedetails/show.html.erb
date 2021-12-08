@@ -1,52 +1,57 @@
+<div class="card-group row">
+  <div class="card col-md-4">
+    <div class="card-header">
+      <h4>Display</h4>
+    </div>
+    <div class="card-body">
+      <p>
+        <strong>IMEI:</strong>
+        <%= @devicedetail.imei %>
+      </p>
+
+      <p>
+        <strong>Brand:</strong>
+        <%= @devicedetail.brand %>
+      </p>
+
+      <p>
+        <strong>Model:</strong>
+        <%= @devicedetail.model %>
+      </p>
+
+      <p>
+        <strong>Device type:</strong>
+        <%= @devicedetail.device_type %>
+      </p>
+
+      <p>
+        <strong>Ram:</strong>
+        <%= @devicedetail.ram %>
+      </p>
+
+      <p>
+        <strong>Built in memory:</strong>
+        <%= @devicedetail.built_in_mem %>
+      </p>
+
+      <p>
+        <strong>Battery:</strong>
+        <%= @devicedetail.battery %>
+      </p>
+
+      <p>
+        <strong>Op sys:</strong>
+        <%= @devicedetail.op_sys %>
+      </p>
+
+      <p>
+        <strong>Chipset:</strong>
+        <%= @devicedetail.chipset %>
+      </p> 
 
 
-<h1>Display</h1>
-
-<p>
-  <strong>IMEI:</strong>
-  <%= @devicedetail.imei %>
-</p>
-
-<p>
-  <strong>Brand:</strong>
-  <%= @devicedetail.brand %>
-</p>
-
-<p>
-  <strong>Model:</strong>
-  <%= @devicedetail.model %>
-</p>
-
-<p>
-  <strong>Device type:</strong>
-  <%= @devicedetail.device_type %>
-</p>
-
-<p>
-  <strong>Ram:</strong>
-  <%= @devicedetail.ram %>
-</p>
-
-<p>
-  <strong>Built in memory:</strong>
-  <%= @devicedetail.built_in_mem %>
-</p>
-
-<p>
-  <strong>Battery:</strong>
-  <%= @devicedetail.battery %>
-</p>
-
-<p>
-  <strong>Op sys:</strong>
-  <%= @devicedetail.op_sys %>
-</p>
-
-<p>
-  <strong>Chipset:</strong>
-  <%= @devicedetail.chipset %>
-</p> 
-
-
-<%= link_to 'Edit', edit_devicedetail_path(@devicedetail) %> |
-<%= link_to 'Back', devicedetails_path %>
+      <%= link_to 'Edit', edit_devicedetail_path(@devicedetail), class:'btn btn-primary me-auto mr-3' %>
+      <%= link_to 'Back', new_devicedetail_path, class:'btn btn-primary' %>
+    </div>
+  </div>
+</div>
