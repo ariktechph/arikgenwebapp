@@ -9,11 +9,16 @@
       <li class="nav-item active">
         <%= link_to "Home", root_path, class:"nav-link" %>
       </li>
+      <% if user_signed_in? %>
       <li class="nav-item">
         <%= link_to "Purchasing", new_devicedetail_path, class:"nav-link" %>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Sales/Out</a>
+      </li>
+      <% end %>
+      <li class="nav-item">
+        <%= link_to "Our Products", ourproducts_path, class:"nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to "About Us", home_about_path, class:"nav-link" %>
@@ -23,4 +28,14 @@
       </li>
     </ul>
   </div>
+    <form class="form-inline my-2 my-lg-0">
+      <% if user_signed_in? %>
+      
+      <%= link_to 'Edit user', edit_user_registration_path, class:'btn btn-dark me-auto mr-3' %>
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:'btn btn-dark me-auto' %>
+      <% else %>
+      <%= link_to 'Create new user', new_user_registration_path, class:'btn btn-dark me-auto mr-3' %>
+      <%= link_to 'Sign In', new_user_session_path, class:'btn btn-dark me-auto mr-3' %>
+      <% end %>
+    </form>
 </nav>

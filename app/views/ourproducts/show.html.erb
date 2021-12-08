@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @ourproduct.prod_name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @ourproduct.prod_price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ourproduct.prod_description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag 'https://drive.google.com/uc?id=' + + @ourproduct.prod_image, :size => "600x300", :crop => :fill %>
+</p>
+
+<br/>
+<%= link_to 'Edit', edit_ourproduct_path(@ourproduct), class:'btn btn-dark' %>
+<%= link_to 'Back', ourproducts_path, class:'btn btn-dark' %>

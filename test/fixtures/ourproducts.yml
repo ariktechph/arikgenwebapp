@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  prod_name: MyString
+  prod_price: MyString
+  prod_description: MyString
+  prod_image: MyString
+
+two:
+  prod_name: MyString
+  prod_price: MyString
+  prod_description: MyString
+  prod_image: MyString
