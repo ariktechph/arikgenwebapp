@@ -1,4 +1,6 @@
 class DevicedetailsController < ApplicationController
+  require 'json'
+
   before_action :set_devicedetail, only: %i[ show edit update destroy ]
 
   # GET /devicedetails or /devicedetails.json
@@ -25,9 +27,13 @@ class DevicedetailsController < ApplicationController
   # POST /devicedetails or /devicedetails.json
   def create
     @devicedetail = Devicedetail.new(devicedetail_params)
-
     respond_to do |format|
       if @devicedetail.save
+        str_data = @devicedetail.get_device_info
+        if str_data.present?
+          data = JSON.parse(str_data)
+          @devicedetail.update(brand: data['brand'], model: data['model'])
+        end
         format.html { redirect_to new_devicedetail_path, notice: "Device was successfully created." }
         format.json { render :new, status: :created, location: @devicedetail }
       else

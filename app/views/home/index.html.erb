@@ -8,7 +8,7 @@
 <h4>Testing
 
 
-<% @request_hash.each do |imeicheck| %>
+<% @request_hash&.each do |imeicheck| %>
 	<%= imeicheck.imei %>
 	<%= imeicheck.brand %>
 	<%= imeicheck.model %>
