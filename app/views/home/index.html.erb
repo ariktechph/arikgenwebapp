@@ -1,3 +1,16 @@
 <div class="text-left">
 <h1>This is the home page</h1>
 </div>
+
+
+
+
+<h4>Testing
+
+
+<% @request_hash.each do |imeicheck| %>
+	<%= imeicheck.imei %>
+	<%= imeicheck.brand %>
+	<%= imeicheck.model %>
+<% end %>
+</h4>

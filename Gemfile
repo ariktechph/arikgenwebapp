@@ -16,7 +16,8 @@ gem 'devise', '~> 4.8'
 gem 'dotenv-rails'
 gem 'rest-client'
 gem 'json'
-
+gem 'figaro', '~> 1.2'
+gem 'httparty', '~> 0.20.0'
 
 group :development, :test do
   gem 'pry'
