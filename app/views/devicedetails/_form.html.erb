@@ -1,15 +1,5 @@
-<%= form_with(model: devicedetail) do |form| %>
-  <% if devicedetail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(devicedetail.errors.count, "error") %> prohibited this devicedetail from being saved:</h2>
 
-      <ul>
-        <% devicedetail.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+
   <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
     <thead class="thead-dark">
@@ -28,22 +18,7 @@
     </thead>
     <tbody>
 
-      <tr imei="tr_<%= @devicedetail.imei%>">
-        <%= form_for devicedetail, remote: true do |f|%>
-          <td><%= form.text_field :imei %></td>
-          <td><%= form.text_field :brand %></td>
-          <td><%= form.text_field :model %></td>
-          <td><%= form.text_field :device_type %></td>
-          <td><%= form.text_field :ram %></td>
-          <td><%= form.text_field :built_in_mem %></td>
-          <td><%= form.text_field :battery %></td>
-          <td><%= form.text_field :op_sys %></td>
-          <td><%= form.text_field :chipset %></td>
-          <td><%= form.submit 'Save', class:'btn btn-dark' %></td>
-          <td></td>
-          <td></td>
-        <% end %>
-      </tr>
+
       <% @devicedetails.each do |devicedetail| %>
       <tr>
         <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;"><%= devicedetail.imei %></td>
@@ -64,9 +39,4 @@
   </table>
 </div>
 
-<!--  <div class="actions">
-    <%= form.submit 'Save device details', class:'btn btn-dark' %>
-  </div>-->
 
-
-<% end %>

@@ -1,8 +1,28 @@
+<%= form_with(model: @devicedetail) do |form| %>
+  <% if @devicedetail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@devicedetail.errors.count, "error") %> prohibited this device from being saved:</h2>
 
-<h4>Device</h4>
+      <ul>
+        <% @devicedetail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<h4>Add New Device</h4>
+
+  <div class="form-group">
+    <label for="imei">IMEI</label>
+    <%= form.text_field :imei %>
+    <% form.submit 'Save', class:'btn btn-dark' %>
+  </div>
 
 <%= render 'form', devicedetail: @devicedetail %>
 <br/>
 
 
 <%= link_to 'Back', root_path, class:"btn btn-dark" %>
+
+<% end %>

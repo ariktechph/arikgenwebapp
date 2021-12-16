@@ -1,7 +1,58 @@
+<%= form_with(model: @devicedetail) do |form| %>
+  <% if @devicedetail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@devicedetail.errors.count, "error") %> prohibited this device from being saved:</h2>
+
+      <ul>
+        <% @devicedetail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 <h4>Editing Device Details</h4>
 
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>IMEI</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Device type</th>
+        <th>RAM</th>
+        <th>Built in memory</th>
+        <th>Battery</th>
+        <th>Operating system</th>
+        <th>Chipset</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr imei="tr_<%= @devicedetail.imei%>">
+        <%= form_for @devicedetail, remote: true do |f|%>
+          <td><%= form.text_field :imei %></td>
+          <td><%= form.text_field :brand %></td>
+          <td><%= form.text_field :model %></td>
+          <td><%= form.text_field :device_type %></td>
+          <td><%= form.text_field :ram %></td>
+          <td><%= form.text_field :built_in_mem %></td>
+          <td><%= form.text_field :battery %></td>
+          <td><%= form.text_field :op_sys %></td>
+          <td><%= form.text_field :chipset %></td>
+          <td><%= form.submit 'Save', class:'btn btn-dark' %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br/>
+
+<h5>Existing Devices</h5>
 <%= render 'form', devicedetail: @devicedetail %>
 <br/>
 <!--<%= link_to 'Show', @devicedetail, class:"btn btn-dark" %>-->
 <%= link_to 'Back', new_devicedetail_path, class:"btn btn-dark" %>
+
+<% end %>
